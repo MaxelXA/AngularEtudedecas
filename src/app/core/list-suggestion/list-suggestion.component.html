@@ -1,0 +1,64 @@
+<div class="suggestions-container">
+  <h1>Suggestions List</h1>
+      <div class="suggestion-card">
+
+ 
+  <!-- Barre de recherche avec two-way binding -->
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Search for a suggestion"
+      class="search-input"
+      (input)="searchText = $any($event.target).value"
+    />
+  </div>
+ 
+  <!-- Liste des suggestions en cards horizontales -->
+  <div class="suggestions-list">
+    <ng-container *ngIf="suggestions.length > 0;">
+    <ng-container *ngFor="let s of suggestions">
+    <div class="suggestion-card"  *ngIf="
+      s.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      s.category.toLowerCase().includes(searchText.toLowerCase())
+    ">
+     
+      <!-- Titre de la suggestion -->
+      <h3 class="suggestion-title">{{s.title}}</h3>
+     
+      <!-- Catégorie et Date -->
+      <div class="suggestion-meta">
+        <span class="suggestion-category">{{s.category}}</span>
+        <span class="suggestion-date">{{s.date}}</span>
+      </div>
+     
+      <!-- Description -->
+      <p class="suggestion-description">{{s.description}}</p>
+     
+      <!-- Statut -->
+      <div class="suggestion-status">
+        <span class="status-badge">{{s.status}}
+        </span>
+      </div>
+     
+      <!-- Boutons d'action -->
+      <div class="action-buttons">
+        <button class="like-button" (click)="likeSuggestion(s)" *ngIf="s.status !== 'refusee'">
+          <span>👍</span> Like {{s.likes}}</button>
+       
+        <button
+          class="favorite-button" (click)="Favajouter(s)" *ngIf="s.status !== 'refusee'">
+          <span>Ajouter aux favories</span>
+        </button>
+      </div>
+    </div>
+</ng-container>
+</ng-container>
+  <div class="no-results" *ngIf="noSearchResults()">
+  <p>Aucune suggestion trouvée.</p>
+</div>
+<div class="suggestion-card">
+    <h2>Liste des Favoris</h2>
+    <div class *ngFor="let s of suggestions">
+        <h3 class="suggestion-title" *ngIf="s.favorite">{{s.title}}</h3>
+    </div>
+</div>

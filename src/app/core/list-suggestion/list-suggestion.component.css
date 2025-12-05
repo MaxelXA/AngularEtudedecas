@@ -1,0 +1,242 @@
+.suggestions-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Barre de recherche */
+.search-bar {
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Liste des suggestions */
+.suggestions-list {
+  display: grid;
+  gap: 20px;
+}
+
+/* Card de suggestion */
+.suggestion-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.suggestion-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Titre de la suggestion */
+.suggestion-title {
+  color: #2c3e50;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Meta informations (catégorie et date) */
+.suggestion-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+.suggestion-category {
+  font-weight: 600;
+  color: #007bff;
+}
+
+.suggestion-date {
+  color: #888;
+}
+
+/* Description */
+.suggestion-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+/* Statut */
+.suggestion-status {
+  margin-bottom: 15px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-en-attente {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-acceptee {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-refusee {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Boutons d'action */
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Bouton Like */
+.like-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.like-button:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.like-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.like-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.like-button span {
+  font-size: 18px;
+}
+
+/* Bouton Favoris */
+.favorite-button {
+  background-color: #f8f9fa;
+  color: #495057;
+  border: 2px solid #dee2e6;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.favorite-button:hover:not(:disabled) {
+  background-color: #e9ecef;
+  border-color: #dc3545;
+  transform: scale(1.05);
+}
+
+.favorite-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.favorite-button:disabled {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.favorite-button.favorited {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+.favorite-button.favorited:hover:not(:disabled) {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.favorite-button.favorited:disabled {
+  background-color: #dc3545;
+  opacity: 0.6;
+}
+
+.favorite-button span {
+  font-size: 18px;
+}
+
+/* Message si aucun résultat */
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+  font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .suggestions-container {
+    padding: 15px;
+  }
+ 
+  .suggestion-card {
+    padding: 20px;
+  }
+ 
+  .suggestion-title {
+    font-size: 1.3em;
+  }
+ 
+  .suggestion-meta {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+}
